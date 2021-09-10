@@ -41,7 +41,9 @@ export default {
 @import "./variables.css";
 body {
   margin: 0;
-  background: var(--powder-blue);
+  background: var(--baby-blue-eyes);
+  color: var(--mint-cream);
+  text-shadow: 0 1px var(--old-lavender);
 }
 .container {
   display: flex;

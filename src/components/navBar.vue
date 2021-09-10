@@ -18,6 +18,7 @@ export default {};
 }
 .container-nav {
   justify-content: space-between;
-  background-color: var(--morning-blue);
+  background-color: var(--mint-cream);
+  color: var(--old-lavender);
 }
 </style>
