@@ -1,7 +1,7 @@
 <template>
   <navBar />
   <main>
-    <temperatureDisplay :data="weatherData" />
+    <temperatureDisplay v-if="weatherData != null" :data="weatherData" />
     <weekForecast />
     <dayForecast id="dayForecast" />
     <additionalData id="additionalData" />
@@ -24,6 +24,7 @@ export default {
   name: "App",
   data() {
     return {
+      dataRetrieved: false,
       weatherData: null,
     };
   },
