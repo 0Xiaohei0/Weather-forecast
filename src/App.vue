@@ -1,10 +1,10 @@
 <template>
   <navBar />
-  <main>
-    <temperatureDisplay v-if="weatherData != null" :data="weatherData" />
-    <weekForecast />
-    <dayForecast id="dayForecast" />
-    <additionalData id="additionalData" />
+  <main v-if="weatherData != null">
+    <temperatureDisplay :data="weatherData" />
+    <weekForecast :data="weatherData" />
+    <dayForecast id="dayForecast" :data="weatherData" />
+    <additionalData id="additionalData" :data="weatherData" />
   </main>
 </template>
 <script>
