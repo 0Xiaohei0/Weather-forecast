@@ -1,3 +1,15 @@
+export function getCurrentTimeIndex(data) {
+  //returns the index in the data array the correspond to the current time
+  const currentDate = new Date();
+  const currentTime = currentDate.getTime();
+  for (let i = 0; i < data.hourly.time.length; i++) {
+    let dataTime = Date.parse(data.hourly.time[i]);
+    if (currentTime < dataTime) {
+      return i;
+    }
+  }
+}
+
 export function WMOtoString(n) {
   switch (n) {
     case 0:

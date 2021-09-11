@@ -29,7 +29,7 @@ export default {
   },
   created() {
     const api =
-      "https://api.open-meteo.com/v1/forecast?latitude=43.48&longitude=-79.64&hourly=temperature_2m,weathercode";
+      "https://api.open-meteo.com/v1/forecast?latitude=43.48&longitude=-79.64&hourly=temperature_2m,relativehumitidy_2m,dewpoint_2m,apparent_temperature,pressure_msl,weathercode,cloudcover,direct_radiation,windspeed_10m,winddirection_10m,soil_temperature_0cm";
     fetch(api)
       .then((resp) => resp.json())
       .then((data) => (this.weatherData = data))

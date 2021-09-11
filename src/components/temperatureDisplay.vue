@@ -6,7 +6,7 @@
   </div>
 </template>
 <script>
-import { WMOtoString, WMOtoIcon } from "./utility/util";
+import { WMOtoString, WMOtoIcon, getCurrentTimeIndex } from "./utility/util";
 export default {
   data() {
     return {
@@ -18,21 +18,10 @@ export default {
   props: ["data"],
   methods: {
     updateState() {
-      let i = this.getCurrentTimeIndex();
+      let i = getCurrentTimeIndex(this.data);
       this.temp = this.data.hourly.temperature_2m[i];
       this.weather = WMOtoString(this.data.hourly.weathercode[i]);
       this.iconString = WMOtoIcon(this.data.hourly.weathercode[i]);
-    },
-    getCurrentTimeIndex() {
-      //returns the index in the data array the correspond to the current time
-      const currentDate = new Date();
-      const currentTime = currentDate.getTime();
-      for (let i = 0; i < this.data.hourly.time.length; i++) {
-        let dataTime = Date.parse(this.data.hourly.time[i]);
-        if (currentTime < dataTime) {
-          return i;
-        }
-      }
     },
   },
   mounted() {
