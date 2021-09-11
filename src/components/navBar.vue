@@ -1,6 +1,6 @@
 <template>
   <div class="container container-nav">
-    <h1 class="cityName">City Name</h1>
+    <h1 class="cityName">Toronto</h1>
     <button class="button-options">
       <font-awesome-icon class="fa-2x" icon="ellipsis-v" />
     </button>

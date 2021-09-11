@@ -24,7 +24,6 @@ export default {
   name: "App",
   data() {
     return {
-      dataRetrieved: false,
       weatherData: null,
     };
   },
