@@ -46,7 +46,13 @@
 </template>
 
 <script>
-export default {};
+import { getNext7Days } from "./utility/util";
+export default {
+  props: ["data"],
+  mounted() {
+    console.log(getNext7Days(this.data));
+  },
+};
 </script>
 
 <style scoped>

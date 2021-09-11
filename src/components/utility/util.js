@@ -10,6 +10,31 @@ export function getCurrentTimeIndex(data) {
   }
 }
 
+export function getNext7Days() {
+  const currentDate = new Date();
+  let weekday = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let index = currentDate.getDay();
+  let counter = 0;
+  let ret = [];
+  while (counter < 7) {
+    counter++;
+    if (index >= 7) {
+      index = 0;
+    }
+    ret.push(weekday[index]);
+    index++;
+  }
+  return ret;
+}
+
 export function WMOtoString(n) {
   switch (n) {
     case 0:
