@@ -1,5 +1,4 @@
-export default function WMOtoString(n) {
-  console.log("util" + n);
+export function WMOtoString(n) {
   switch (n) {
     case 0:
       return "Sunny";
@@ -60,5 +59,46 @@ export default function WMOtoString(n) {
 
     default:
       return "Sunny";
+  }
+}
+
+export function WMOtoIcon(n) {
+  switch (n) {
+    case 0:
+      return "sun";
+    case 1:
+    case 2:
+    case 3:
+      return "cloud";
+    case 45:
+    case 48:
+    case 51:
+    case 53:
+    case 55:
+    case 56:
+    case 57:
+      return "smog";
+    case 61:
+    case 63:
+    case 65:
+    case 66:
+    case 67:
+      return "cloud-showers-heavy";
+    case 71:
+    case 73:
+    case 75:
+    case 77:
+      return "snowflake";
+    case 80:
+    case 81:
+    case 82:
+      return "cloud-showers-heavy";
+    case 85:
+    case 86:
+      return "snowflake";
+    case 95:
+    case 96:
+    case 99:
+      return "poo-storm";
   }
 }
