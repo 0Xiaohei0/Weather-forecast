@@ -29,8 +29,17 @@ export default {
 <style scoped>
 .cityList {
   padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  align-items: center;
 }
 .cityItem {
-  list-style: none;
+  padding: 0.1rem;
+  width: 70%;
+  color: black;
+  text-decoration: none;
+  border-bottom: 1px solid var(--old-lavender);
 }
 </style>

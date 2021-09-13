@@ -45,7 +45,6 @@ export default {
 };
 </script>
 <style>
-@import "../variables.css";
 main {
   font-size: 3vw;
 }
@@ -53,13 +52,12 @@ body {
   margin: 0;
   background: var(--baby-blue-eyes);
   color: var(--mint-cream);
-  text-shadow: 0 1px var(--old-lavender);
 }
 .container {
   display: flex;
   padding: 0 1rem;
 }
-@media (min-width: 790px) {
+@media (orientation: landscape) {
   main {
     display: grid;
     grid-template-columns: 40% 60%;
