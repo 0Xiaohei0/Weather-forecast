@@ -1,11 +1,15 @@
 <template>
+  <navBack />
   <div class="about">
-    <h1>This is an about page</h1>
+    <citySelect />
   </div>
 </template>
 
 <script>
+import citySelect from "@/components/citySelect";
+import navBack from "@/components/navBack";
 export default {
   name: "city",
+  components: { citySelect, navBack },
 };
 </script>

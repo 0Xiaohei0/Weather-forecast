@@ -10,6 +10,7 @@ import {
   faSmog,
   faPooStorm,
   faCity,
+  faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import router from "./router";
@@ -22,7 +23,8 @@ library.add(
   faSnowflake,
   faSmog,
   faPooStorm,
-  faCity
+  faCity,
+  faArrowLeft
 );
 
 createApp(App)
