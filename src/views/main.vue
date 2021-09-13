@@ -2,7 +2,7 @@
   <div>
     <navBar :cityName="cityName" />
     <main v-if="weatherData != null">
-      <temperatureDisplay :data="weatherData" />
+      <temperatureDisplay :data="weatherData" :lat="lat" :lon="lon" />
       <weekForecast :data="weatherData" />
       <dayForecast id="dayForecast" :data="weatherData" />
       <additionalData id="additionalData" :data="weatherData" />

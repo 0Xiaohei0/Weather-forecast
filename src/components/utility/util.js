@@ -10,6 +10,13 @@ export function getCurrentTimeIndex(data) {
   }
 }
 
+export function getCurrentTime() {
+  //returns the index in the data array the correspond to the current time
+  const currentDate = new Date();
+  const currentTime = currentDate.toLocaleTimeString();
+  return currentTime;
+}
+
 export function getNext7Days() {
   const currentDate = new Date();
   let weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -21,7 +28,8 @@ export function getNext7Days() {
     if (index >= 7) {
       index = 0;
     }
-    ret.push(weekday[index]);
+    if (ret.length == 0) ret.push("Today");
+    else ret.push(weekday[index]);
     index++;
   }
   return ret;
