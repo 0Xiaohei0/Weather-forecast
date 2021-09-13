@@ -1,23 +1,25 @@
 <template>
   <div class="container container-nav">
     <h1 class="cityName">Toronto</h1>
-    <button class="button-options">
-      <font-awesome-icon class="fa-2x" icon="ellipsis-v" />
-    </button>
+    <router-link to="/city" class="link-city">
+      <font-awesome-icon class="fa-2x" icon="city" />
+    </router-link>
   </div>
 </template>
 <!--style="border: 2px solid yellow" -->
 <script>
-export default {};
+export default {
+  methods: {},
+};
 </script>
 
 <style scoped>
-.button-options {
-  background: transparent;
-  border: 0px solid transparent;
+.link-city {
+  color: var(--old-lavender);
 }
 .container-nav {
   justify-content: space-between;
+  align-items: center;
   background-color: var(--mint-cream);
   color: var(--old-lavender);
 }

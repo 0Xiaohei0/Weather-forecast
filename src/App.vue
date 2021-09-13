@@ -1,69 +1,25 @@
 <template>
-  <navBar />
-  <main v-if="weatherData != null">
-    <temperatureDisplay :data="weatherData" />
-    <weekForecast :data="weatherData" />
-    <dayForecast id="dayForecast" :data="weatherData" />
-    <additionalData id="additionalData" :data="weatherData" />
-  </main>
+  <router-view />
 </template>
-<script>
-import navBar from "./components/navBar";
-import temperatureDisplay from "./components/temperatureDisplay";
-import weekForecast from "./components/weekForecast";
-import dayForecast from "./components/dayForecast";
-import additionalData from "./components/additionalData";
-export default {
-  components: {
-    navBar,
-    temperatureDisplay,
-    weekForecast,
-    dayForecast,
-    additionalData,
-  },
-  name: "App",
-  data() {
-    return {
-      weatherData: null,
-    };
-  },
-  created() {
-    const api =
-      "https://api.open-meteo.com/v1/forecast?latitude=43.48&longitude=-79.64&hourly=temperature_2m,relativehumitidy_2m,dewpoint_2m,apparent_temperature,pressure_msl,weathercode,cloudcover,direct_radiation,windspeed_10m,winddirection_10m,soil_temperature_0cm";
-    fetch(api)
-      .then((resp) => resp.json())
-      .then((data) => (this.weatherData = data))
-      .catch((err) => console.log(err.message));
-  },
-};
-</script>
+
 <style>
-@import "./variables.css";
-main {
-  font-size: 0.8rem;
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
 }
-body {
-  margin: 0;
-  background: var(--baby-blue-eyes);
-  color: var(--mint-cream);
-  text-shadow: 0 1px var(--old-lavender);
+
+#nav {
+  padding: 30px;
 }
-.container {
-  display: flex;
-  padding: 0 1rem;
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
 }
-@media (min-width: 600px) {
-  main {
-    display: grid;
-    grid-template-columns: 40% 60%;
-    grid-template-rows: 50% 50%;
-    font-size: 1rem;
-  }
-  #additionalData {
-    order: 1;
-  }
-  #dayForecast {
-    order: 2;
-  }
+
+#nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>

@@ -12,15 +12,7 @@ export function getCurrentTimeIndex(data) {
 
 export function getNext7Days() {
   const currentDate = new Date();
-  let weekday = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
+  let weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let index = currentDate.getDay();
   let counter = 0;
   let ret = [];

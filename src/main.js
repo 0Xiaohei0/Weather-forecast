@@ -9,8 +9,10 @@ import {
   faSnowflake,
   faSmog,
   faPooStorm,
+  faCity,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import router from "./router";
 
 library.add(
   faEllipsisV,
@@ -19,9 +21,11 @@ library.add(
   faCloudShowersHeavy,
   faSnowflake,
   faSmog,
-  faPooStorm
+  faPooStorm,
+  faCity
 );
 
 createApp(App)
+  .use(router)
   .component("font-awesome-icon", FontAwesomeIcon)
   .mount("#app");
