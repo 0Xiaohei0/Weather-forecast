@@ -1,11 +1,13 @@
 <template>
-  <navBar />
-  <main v-if="weatherData != null">
-    <temperatureDisplay :data="weatherData" />
-    <weekForecast :data="weatherData" />
-    <dayForecast id="dayForecast" :data="weatherData" />
-    <additionalData id="additionalData" :data="weatherData" />
-  </main>
+  <div>
+    <navBar :cityName="cityName" />
+    <main v-if="weatherData != null">
+      <temperatureDisplay :data="weatherData" />
+      <weekForecast :data="weatherData" />
+      <dayForecast id="dayForecast" :data="weatherData" />
+      <additionalData id="additionalData" :data="weatherData" />
+    </main>
+  </div>
 </template>
 <script>
 import navBar from "@/components/navBar";
@@ -27,9 +29,14 @@ export default {
       weatherData: null,
     };
   },
+  props: ["cityName", "lat", "lon"],
   created() {
     const api =
-      "https://api.open-meteo.com/v1/forecast?latitude=43.48&longitude=-79.64&hourly=temperature_2m,relativehumitidy_2m,dewpoint_2m,apparent_temperature,pressure_msl,weathercode,cloudcover,direct_radiation,windspeed_10m,winddirection_10m,soil_temperature_0cm";
+      "https://api.open-meteo.com/v1/forecast?latitude=" +
+      this.lat +
+      "&longitude=" +
+      this.lon +
+      "&hourly=temperature_2m,relativehumitidy_2m,dewpoint_2m,apparent_temperature,pressure_msl,weathercode,cloudcover,direct_radiation,windspeed_10m,winddirection_10m,soil_temperature_0cm";
     fetch(api)
       .then((resp) => resp.json())
       .then((data) => (this.weatherData = data))

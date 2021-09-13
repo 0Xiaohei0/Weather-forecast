@@ -1,13 +1,14 @@
 <template>
   <ul class="cityList">
-    <li
+    <router-link
+      to="/"
       v-for="(d, index) in data"
       :key="index"
       class="cityItem"
-      @change="$emit('cityChange', d.city)"
+      @click="this.$emit('citychange', d)"
     >
       {{ d.city }}
-    </li>
+    </router-link>
   </ul>
 </template>
 
@@ -20,7 +21,7 @@ export default {
       data: cityData,
     };
   },
-
+  emits: ["citychange"],
   mounted() {},
 };
 </script>

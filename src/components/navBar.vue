@@ -1,6 +1,6 @@
 <template>
   <div class="container container-nav">
-    <h1 class="cityName">Toronto</h1>
+    <h1 class="cityName">{{ this.cityName }}</h1>
     <router-link to="/city" class="link-city">
       <font-awesome-icon class="fa-2x" icon="city" />
     </router-link>
@@ -9,7 +9,10 @@
 <!--style="border: 2px solid yellow" -->
 <script>
 export default {
-  methods: {},
+  data() {
+    return {};
+  },
+  props: ["cityName"],
 };
 </script>
 

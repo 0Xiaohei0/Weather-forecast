@@ -1,7 +1,7 @@
 <template>
-  <navBack />
-  <div class="about">
-    <citySelect />
+  <div>
+    <navBack />
+    <citySelect @citychange="onCityChange" />
   </div>
 </template>
 
@@ -11,5 +11,10 @@ import navBack from "@/components/navBack";
 export default {
   name: "city",
   components: { citySelect, navBack },
+  methods: {
+    onCityChange(event) {
+      this.$emit("citychange", event);
+    },
+  },
 };
 </script>
