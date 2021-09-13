@@ -6,8 +6,8 @@
         <p class="dataValue">
           {{
             data.hourly.apparent_temperature[index] +
-              " " +
-              data.hourly_units.apparent_temperature
+            " " +
+            data.hourly_units.apparent_temperature
           }}
         </p>
       </div>
@@ -16,8 +16,8 @@
         <p class="dataValue">
           {{
             data.hourly.pressure_msl[index] +
-              " " +
-              data.hourly_units.pressure_msl
+            " " +
+            data.hourly_units.pressure_msl
           }}
         </p>
       </div>
@@ -34,8 +34,8 @@
         <p class="dataValue">
           {{
             data.hourly.winddirection_10m[index] +
-              " " +
-              data.hourly_units.winddirection_10m
+            " " +
+            data.hourly_units.winddirection_10m
           }}
         </p>
       </div>
@@ -46,10 +46,9 @@
         <p class="dataValue">
           {{
             data.hourly.relativehumitidy_2m[index] +
-              " " +
-              data.hourly_units.relativehumitidy_2m
+            " " +
+            data.hourly_units.relativehumitidy_2m
           }}
-          &#8451;
         </p>
       </div>
       <div class="data">
@@ -57,8 +56,8 @@
         <p class="dataValue">
           {{
             data.hourly.windspeed_10m[index] +
-              " " +
-              data.hourly_units.pressure_msl
+            " " +
+            data.hourly_units.pressure_msl
           }}
         </p>
       </div>
@@ -67,8 +66,8 @@
         <p class="dataValue">
           {{
             data.hourly.direct_radiation[index] +
-              " " +
-              data.hourly_units.direct_radiation
+            " " +
+            data.hourly_units.direct_radiation
           }}
         </p>
       </div>
