@@ -39,6 +39,9 @@ export default {
 </script>
 <style>
 @import "./variables.css";
+main {
+  font-size: 0.8rem;
+}
 body {
   margin: 0;
   background: var(--baby-blue-eyes);
@@ -54,6 +57,7 @@ body {
     display: grid;
     grid-template-columns: 40% 60%;
     grid-template-rows: 50% 50%;
+    font-size: 1rem;
   }
   #additionalData {
     order: 1;

@@ -1,49 +1,55 @@
 <template>
   <div class="container">
-    <div class="hourItem">
-      <p class="dayOfTheWeek">00:00</p>
-      <font-awesome-icon class="fa-2x" icon="sun" />
-      <p class="temp">17 &#8451;</p>
-    </div>
-    <div class="hourItem">
-      <p class="dayOfTheWeek">04:00</p>
-      <font-awesome-icon class="fa-2x" icon="sun" />
-      <p class="temp">17 &#8451;</p>
-    </div>
-    <div class="hourItem">
-      <p class="dayOfTheWeek">08:00</p>
-      <font-awesome-icon class="fa-2x" icon="sun" />
-      <p class="temp">17 &#8451;</p>
-    </div>
-    <div class="hourItem">
-      <p class="dayOfTheWeek">12:00</p>
-      <font-awesome-icon class="fa-2x" icon="sun" />
-      <p class="temp">17 &#8451;</p>
-    </div>
-    <div class="hourItem">
-      <p class="dayOfTheWeek">16:00</p>
-      <font-awesome-icon class="fa-2x" icon="sun" />
-      <p class="temp">17 &#8451;</p>
-    </div>
-    <div class="hourItem">
-      <p class="dayOfTheWeek">20:00</p>
-      <font-awesome-icon class="fa-2x" icon="sun" />
-      <p class="temp">17 &#8451;</p>
-    </div>
-    <div class="hourItem">
-      <p class="dayOfTheWeek">24:00</p>
-      <font-awesome-icon class="fa-2x" icon="sun" />
-      <p class="temp">17 &#8451;</p>
+    <div v-for="(d, index) in displayData" :key="index" class="hourItem">
+      <p class="dayOfTheWeek">{{ d.time }}</p>
+      <font-awesome-icon class="fa-2x" :icon="d.weather" />
+      <p class="temp">{{ d.temp }} &#8451;</p>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { WMOtoIcon } from "./utility/util";
+export default {
+  data() {
+    return {
+      displayData: [],
+    };
+  },
+  props: ["data"],
+  methods: {
+    loadData() {
+      const INTERVAL = 4;
+      let time = [];
+      let weather = [];
+      let temp = [];
+      for (let i = 0; i <= 24; i += INTERVAL) {
+        time.push(
+          this.data.hourly.time[i].substring(
+            this.data.hourly.time[i].length - 5,
+            this.data.hourly.time[i].length
+          )
+        );
+        weather.push(WMOtoIcon(this.data.hourly.weathercode[i]));
+        temp.push(this.data.hourly.temperature_2m[i]);
+      }
+      for (let i = 0; i < time.length; i++) {
+        this.displayData.push({
+          time: time[i],
+          weather: weather[i],
+          temp: temp[i],
+        });
+      }
+    },
+  },
+  mounted() {
+    this.loadData();
+  },
+};
 </script>
 
 <style scoped>
 .container {
-  justify-content: space-between;
+  justify-content: space-around;
 }
 </style>
